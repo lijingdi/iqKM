@@ -9,7 +9,7 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads.fastq(.gz) --meta --quantify
 iqKM -h
 ```
 
-**Detailed pipeline walkthrough**
+## Detailed pipeline walkthrough
 
 ![iqKM workflow]()
 
@@ -118,7 +118,7 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 
 ***Required arguments:***
 
-|       |   | 
+|               |                   | 
 |:---------------:|:---------------:|
 | -i, --input | genome/metagenome |
 | -o, --out_dir | output folder |
@@ -127,7 +127,7 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 
 ***Optional arguments:***
 
-|         |   | 
+|                 |                 | 
 |:---------------:|:---------------:|
 | --rq | input reverse read file, fastq(.gz), only required when '--quantify' is specified|
 | --prefix | prefix of output files, optional|
@@ -163,12 +163,12 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
         * *prefix_remapping.log*
         * *prefix_unique.tab*
     * **out_abundance (only output when '--quantify' is specified)**
-        * *km_abd_contig/
-            prefix_km_contig_abd.tsv*
-        * *km_abd_sample/
-            prefix_km_sample_abd.tsv*
-        * *ko_abd/
-            prefix_ko_abd.tsv*
+        * km_abd_contig/
+            *prefix_km_contig_abd.tsv*
+        * km_abd_sample/
+            *prefix_km_sample_abd.tsv*
+        * ko_abd/
+            *prefix_ko_abd.tsv*
 
 
 ## Acknowledgements
