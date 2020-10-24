@@ -17,33 +17,6 @@ iqKM -h
 
 iqKM is a command line tool developed for Linux and macOS and is available to install from github, bioconda () or pypi ().
 
-### Install from github
-* **Step 1: Install third-party dependencies**
-
-Before installing iqKM, make sure the following softwares are on the system path, they are all easy-to-install tools. 
-
-|    Software     | Version  | 
-|:---------------:|:---------------:|
-| [HMMER](http://hmmer.org/documentation.html) | >=3.1 | 
-| [Prodigal](https://github.com/hyattpd/Prodigal) | >=2.6.3 |
-| [bwa](https://github.com/lh3/bwa) | >= 0.7.17 | 
-| [samtools](http://www.htslib.org/download/) |  >= 1.3.1 | 
-
-
-* **Step 2: Clone the repo and install**
-```bash
-git clone https://github.com/lijingdi/iqKM.git
-cd /path/to/iqKM
-python3 setup.py install
-```
-
-* **Step 3: Download the refrence HMM db and help files**
-```bash
-wget XX ./db/
-hmmpress ./db/XX
-```
-
-
 
 ### Install via conda (recommanded)
 
@@ -57,10 +30,16 @@ conda create -n iqkm -c bioconda iqKM
 * **Step 2: Download the reference HMM db and help files**
 ```bash
 conda activate iqkm
-which iqKM
-*# /miniconda3/env/iqkm/bin/iqKM*
-wget XX -P /miniconda3/env/iqkm/bin/iqKM/db/
-wget XX -p /miniconda3/env/iqkm/bin/iqKM/help_files/
+# create a helping directory (help_dir) and enter it
+mkdir ./help_dir && cd ./help_dir
+
+# download Kofam HMM db to /path_to_help_dir/db and press db
+mkdir db/ && cd db/
+wget XX && hmmpress XX
+
+# download essential help_files to /path_to_help_dir/help_files
+cd ../help_dir && mkdir help_files && cd help_files
+wget XX ß
 ```
 
 ### Install via pip
@@ -83,11 +62,39 @@ pip install iqKM
 
 * **Step 3: Download the refrence HMM db and help files**
 ```bash
-which iqKM
+
 #
 wget 
 wget
 ```
+
+
+### Install from github
+* **Step 1: Install third-party dependencies**
+
+Before installing iqKM, make sure the following softwares are on the system path, they are all easy-to-install tools. 
+
+|    Software     | Version  | 
+|:---------------:|:---------------:|
+| [HMMER](http://hmmer.org/documentation.html) | >=3.1 | 
+| [Prodigal](https://github.com/hyattpd/Prodigal) | >=2.6.3 |
+| [bwa](https://github.com/lh3/bwa) | >= 0.7.17 | 
+| [samtools](http://www.htslib.org/download/) |  >= 1.3.1 | 
+
+
+* **Step 2: Clone the repo and install**
+```bash
+git clone https://github.com/lijingdi/iqKM.git
+cd /path/to/iqKM
+python3 setup.py install
+```
+
+* **Step 3: Download the refrence HMM db and help files**
+```bash
+
+```
+
+
 
 
 ## Usage
@@ -142,25 +149,25 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 
 ### Files output
 * **out_dir**
-    * **prodigal**
+    * **prodigal (intermediate files)** 
         * *[prefix]_predicted.cds*
         * *[prefix]_predicted.pep*
         * *[prefix]_predicted.gff*
-    * **hmmsearch**
+    * **hmmsearch (intermediate files)**
         * *[prefix]_hmmsearch.log*
         * *[prefix]_hmmsearch.tbl*
-    * **KO_parsing**
+    * **KO_parsing (intermediate files)**
         * *[prefix].ko*
-    * **KM_assignment_unfiltered**
+    * **KM_assignment_unfiltered (intermediate files)**
         * *[prefix].summary.kegg_contigs.tsv*
         * *[prefix].summary.kegg_pathways.tsv*
-    * **KM_assignment_filtered**
+    * **KM_assignment_filtered (KM assignment output)**
         * *[prefix]_km_on_contig.tsv*
         * *[prefix]_km_sample_count.tsv*
-    * **out_remap (only output when '--quantify' is specified)**
+    * **out_remap (intermediate files, only when '--quantify' is specified)**
         * *[prefix]_remapping.log*
         * *[prefix]_unique.tab*
-    * **out_abundance (only output when '--quantify' is specified)**
+    * **out_abundance (KM abundance output, only when '--quantify' is specified)**
         * **km_abd_contig**
            * *[prefix]_km_contig_abd.tsv*
         * **km_abd_sample**
