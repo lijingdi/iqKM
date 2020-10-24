@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: iqkm
+Version: 1.0
+Summary: Identification and quantification of KEGG Modules in metagenomes/genomes
+Home-page: https://github.com/Finn-Lab/iqKM/
+Author: Jingdi Li
+Author-email: lijingdioo@outlook.com
+License: GPLv3
+Description: iqKM
+        
+        iqKM (Identification and Quantification of KEGG Modules) is a tool for KEGG Module assignment and abundance calculation from metagenomic/genomic data.
+        
+        Getting started
+        These instructions will allow you to run iqKM on your computer. iqKM is a command line tool developed for Linux and macOS.
+        
+        Prerequi
+        
+        
+        Installation
+        
+        Pip or bioconda
+        
+         
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8.3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: Unix
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

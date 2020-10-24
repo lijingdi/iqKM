@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../EukCC-master"
+		},
+		{
+			"path": "../MicroInfoTeam_code"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../MicrobeCensus-master"
+		}
+	],
+	"settings": {
+		"python.pythonPath": "/Users/lijingdi/miniconda3/bin/python"
+	}
+}
