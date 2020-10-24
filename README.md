@@ -8,10 +8,13 @@ iqKM -i metagenome.fna -o out_dir --meta
 iqKM -i metagenome.fna -o out_dir --fq raw_reads.fastq(.gz) --meta --quantify
 iqKM -h
 ```
+
 **Detailed pipeline walkthrough**
+
 ![iqKM workflow]()
 
 ## Installation
+
 iqKM is a command line tool developed for Linux and macOS and is available to install from github, bioconda () or pypi ().
 
 ### Install from github
@@ -41,6 +44,7 @@ hmmpress ./db/XX
 ```
 
 
+
 ### Install via conda (recommanded)
 
 Installing iqKM via conda will automatically install all dependencies. 
@@ -61,6 +65,7 @@ wget XX -p /miniconda3/env/iqkm/bin/iqKM/help_files/
 
 ### Install via pip
 * **Step 1: Install third-party dependencies**
+
 Before installing iqKM using pip, make sure the following softwares are on the system path, they are all easy-to-install tools. 
 
 |    Software     | Version  | 
@@ -107,14 +112,13 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 
 ### Arguments
 
-***iqKM -h***
+**iqKM -h**
 
-*iqkm -i input_genome -o out_dir* 
-
-[--fq fastq_1.gz] [--rq fastq_2.gz] [--prefix PREFIX] [--db HMMdb] [--com float] [--skip] [--quantify] [--meta] [-w] [-n int] [-f] [-d] [-g file]
+***iqkm -i input_genome -o out_dir** [--fq fastq_1.gz] [--rq fastq_2.gz] [--prefix PREFIX] [--db HMMdb] [--com float] [--skip] [--quantify] [--meta] [-w] [-n int] [-f] [-d] [-g file]*
 
 ***Required arguments:***
 
+|       |   | 
 |:---------------:|:---------------:|
 | -i, --input | genome/metagenome |
 | -o, --out_dir | output folder |
@@ -123,6 +127,7 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 
 ***Optional arguments:***
 
+|         |   | 
 |:---------------:|:---------------:|
 | --rq | input reverse read file, fastq(.gz), only required when '--quantify' is specified|
 | --prefix | prefix of output files, optional|
@@ -154,10 +159,10 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
     * **KM_assignment_filtered**
         * *prefix_km_on_contig.tsv*
         * *prefix_km_sample_count.tsv*
-    * **out_remap (optional, only output when '--quantify' is specified)**
+    * **out_remap (only output when '--quantify' is specified)**
         * *prefix_remapping.log*
         * *prefix_unique.tab*
-    * **out_abundance (optional, only output when '--quantify' is specified)**
+    * **out_abundance (only output when '--quantify' is specified)**
         * *km_abd_contig/
             prefix_km_contig_abd.tsv*
         * *km_abd_sample/
