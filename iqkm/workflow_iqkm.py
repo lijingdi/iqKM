@@ -93,8 +93,8 @@ class Workflow_iqkm:
                 out_cds, self._fq1, self._fq2, remap_dir, self._prefix, self._cpu
             )
             remap_cls.remapping()
-#        elif self._skip:
-#            logging.info("Force skipping bwa mapping as user used '--skip'")
+        elif self._skip:
+            logging.info("Force skipping bwa mapping as user used '--skip'")
         else:
             if file.isnewer(out_cds, remap_out) or file.isnewer(self._fq1, remap_out):
                 remap_cls = Remapping(
