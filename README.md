@@ -116,14 +116,14 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 
 ***iqkm -i input_genome -o out_dir** [--fq fastq_1.gz] [--rq fastq_2.gz] [--prefix PREFIX] [--db HMMdb] [--com float] [--skip] [--quantify] [--meta] [-w] [-n int] [-f] [-d] [-g file]*
 
-| *Required arguments*        | 
+| *Required arguments*        |     |
 |:---------------:|:---------------:|
 | -i, --input | genome/metagenome |
 | -o, --out_dir | output folder |
 | --fq | input first/single read file, fastq(.gz), only required when '--quantify' is specified|
 
 
-| *Optional arguments*        | 
+| *Optional arguments*        |     |
 |:---------------:|:---------------:|
 | --rq | input reverse read file, fastq(.gz), only required when '--quantify' is specified|
 | --prefix | prefix of output files, optional|
