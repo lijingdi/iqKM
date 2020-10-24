@@ -68,11 +68,11 @@ wget XX -p /miniconda3/env/iqkm/bin/iqKM/help_files/
 
 Before installing iqKM using pip, make sure the following softwares are on the system path, they are all easy-to-install tools. 
 
-|    Software     | Version  | 
-|:---------------:|:---------------:|
-| [HMMER](http://hmmer.org/documentation.html) | >=3.1 | 
-| [Prodigal](https://github.com/hyattpd/Prodigal) | >=2.6.3 |
-| [bwa](https://github.com/lh3/bwa) | >= 0.7.17 | 
+|    Software     | Version  |
+|:---------------:|:---------------:| 
+| [HMMER](http://hmmer.org/documentation.html) | >=3.1 |
+| [Prodigal](https://github.com/hyattpd/Prodigal) | >=2.6.3 | 
+| [bwa](https://github.com/lh3/bwa) | >= 0.7.17 |
 | [samtools](http://www.htslib.org/download/) |  >= 1.3.1 | 
 
 
@@ -116,18 +116,14 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 
 ***iqkm -i input_genome -o out_dir** [--fq fastq_1.gz] [--rq fastq_2.gz] [--prefix PREFIX] [--db HMMdb] [--com float] [--skip] [--quantify] [--meta] [-w] [-n int] [-f] [-d] [-g file]*
 
-***Required arguments:***
-
-|               |                   | 
+| *Required arguments* |       | 
 |:---------------:|:---------------:|
 | -i, --input | genome/metagenome |
 | -o, --out_dir | output folder |
 | --fq | input first/single read file, fastq(.gz), only required when '--quantify' is specified|
 
 
-***Optional arguments:***
-
-|                 |                 | 
+| *Optional arguments*  |      | 
 |:---------------:|:---------------:|
 | --rq | input reverse read file, fastq(.gz), only required when '--quantify' is specified|
 | --prefix | prefix of output files, optional|
@@ -136,11 +132,13 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 | --skip | Force skipping steps if output files exist, default=False |
 | -q, --quantify | Run both KM assignment and quantification, default = False |
 | -m, --meta | Run in metagenome mode, default = False |
-| -w, --include_weights | Enable normalizing KM abundance using KO weights, default = True |
+| -w, 
+--include_weights | Enable normalizing KM abundance using KO weights, default = True |
 | -n, --threads | Number of threads used for computation, default = 1 |
 | -f, --force | Force rerunning the whole pipeline, don't resume previous run, default = False |
 | -d, --dist | Apply KM minimum distance threshold, default = True |
-| -g, --genome_equivalent | Genome equivalent output file generated from microbe-census, can be used for library-size normalization, optional |
+| -g, 
+--genome_equivalent | Genome equivalent output file generated from microbe-census, can be used for library-size normalization, optional |
 
 ### Files output
 * **out_dir**
@@ -164,11 +162,11 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
         * *prefix_unique.tab*
     * **out_abundance (only output when '--quantify' is specified)**
         * km_abd_contig/
-            *prefix_km_contig_abd.tsv*
+           * *prefix_km_contig_abd.tsv*
         * km_abd_sample/
-            *prefix_km_sample_abd.tsv*
+           * *prefix_km_sample_abd.tsv*
         * ko_abd/
-            *prefix_ko_abd.tsv*
+           * *prefix_ko_abd.tsv*
 
 
 ## Acknowledgements
