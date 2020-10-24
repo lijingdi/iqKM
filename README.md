@@ -143,30 +143,30 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 ### Files output
 * **out_dir**
     * **prodigal**
-        * *prefix_predicted.cds*
-        * *prefix_predicted.pep*
-        * *prefix_predicted.gff*
+        * *[prefix]_predicted.cds*
+        * *[prefix]_predicted.pep*
+        * *[prefix]_predicted.gff*
     * **hmmsearch**
-        * *prefix_hmmsearch.log*
-        * *prefix_hmmsearch.tbl*
+        * *[prefix]_hmmsearch.log*
+        * *[prefix]_hmmsearch.tbl*
     * **KO_parsing**
-        * *prefix.ko*
+        * *[prefix].ko*
     * **KM_assignment_unfiltered**
-        * *prefix.summary.kegg_contigs.tsv*
-        * *prefix.summary.kegg_pathways.tsv*
+        * *[prefix].summary.kegg_contigs.tsv*
+        * *[prefix].summary.kegg_pathways.tsv*
     * **KM_assignment_filtered**
-        * *prefix_km_on_contig.tsv*
-        * *prefix_km_sample_count.tsv*
+        * *[prefix]_km_on_contig.tsv*
+        * *[prefix]_km_sample_count.tsv*
     * **out_remap (only output when '--quantify' is specified)**
-        * *prefix_remapping.log*
-        * *prefix_unique.tab*
+        * *[prefix]_remapping.log*
+        * *[prefix]_unique.tab*
     * **out_abundance (only output when '--quantify' is specified)**
         * **km_abd_contig**
-           * *prefix_km_contig_abd.tsv*
+           * *[prefix]_km_contig_abd.tsv*
         * **km_abd_sample**
-           * *prefix_km_sample_abd.tsv*
+           * *[prefix]_km_sample_abd.tsv*
         * **ko_abd**
-           * *prefix_ko_abd.tsv*
+           * *[prefix]_ko_abd.tsv*
 
 
 ## Acknowledgements
