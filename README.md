@@ -8,18 +8,14 @@ iqKM -i metagenome.fna -o out_dir --meta
 iqKM -i metagenome.fna -o out_dir --fq raw_reads.fastq(.gz) --meta --quantify
 iqKM -h
 ```
-***
-
-Detailed pipeline walkthrough
-
-***
+**Detailed pipeline walkthrough**
 ![iqKM workflow]()
 
 ## Installation
 iqKM is a command line tool developed for Linux and macOS and is available to install from github, bioconda () or pypi ().
 
 ### Install from github
-* Step 1: Install third-party dependencies
+* **Step 1: Install third-party dependencies**
 
 Before installing iqKM, make sure the following softwares are on the system path, they are all easy-to-install tools. 
 
@@ -31,14 +27,14 @@ Before installing iqKM, make sure the following softwares are on the system path
 | [samtools](http://www.htslib.org/download/) |  >= 1.3.1 | 
 
 
-* Step 2: Clone the repo and install
+* **Step 2: Clone the repo and install**
 ```bash
 git clone https://github.com/lijingdi/iqKM.git
 cd /path/to/iqKM
 python3 setup.py install
 ```
 
-* Step 3: Download the refrence HMM db and help files
+* **Step 3: Download the refrence HMM db and help files**
 ```bash
 wget XX ./db/
 hmmpress ./db/XX
@@ -49,12 +45,12 @@ hmmpress ./db/XX
 
 Installing iqKM via conda will automatically install all dependencies. 
 
-* Step 1: Create the iqKM environment
+* **Step 1: Create the iqKM environment**
 ```bash
 conda create -n iqkm -c bioconda iqKM
 ```
 
-* Step 2: Download the reference HMM db and help files
+* **Step 2: Download the reference HMM db and help files**
 ```bash
 conda activate iqkm
 which iqKM
@@ -64,8 +60,9 @@ wget XX -p /miniconda3/env/iqkm/bin/iqKM/help_files/
 ```
 
 ### Install via pip
-* Step 1: Install third-party dependencies
+* **Step 1: Install third-party dependencies**
 Before installing iqKM using pip, make sure the following softwares are on the system path, they are all easy-to-install tools. 
+
 |    Software     | Version  | 
 |:---------------:|:---------------:|
 | [HMMER](http://hmmer.org/documentation.html) | >=3.1 | 
@@ -74,12 +71,12 @@ Before installing iqKM using pip, make sure the following softwares are on the s
 | [samtools](http://www.htslib.org/download/) |  >= 1.3.1 | 
 
 
-* Step 2: Install iqKM
+* **Step 2: Install iqKM**
 ```bash
 pip install iqKM
 ```
 
-* Step 3: Download the refrence HMM db and help files
+* **Step 3: Download the refrence HMM db and help files**
 ```bash
 which iqKM
 #
@@ -90,39 +87,43 @@ wget
 
 ## Usage
 ### Basic usage
-* KMs assignment for individual genomes
+* **KMs assignment for individual genomes**
 ```bash
 iqKM -i genome.fna -o out_dir
 ```
-* KMs assignment and quantification for individual genomes
+* **KMs assignment and quantification for individual genomes**
 ```bash
 iqKM -i genome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.fastq(.gz) --quantify
 ```
 
-* KMs assignment for metagenomes
+* **KMs assignment for metagenomes**
 ```bash
 iqKM -i metagenome.fna -o out_dir --meta
 ```
-* KMs assignment and quantification for metagenomes
+* **KMs assignment and quantification for metagenomes**
 ```bash
 iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.fastq(.gz) --meta --quantify
 ```
 
 ### Arguments
 
-**iqKM -h**
+***iqKM -h***
+
 *iqkm -i input_genome -o out_dir* 
-[--fq fastq_1.gz][--rq fastq_2.gz][--prefix PREFIX][--db HMMdb][--com float][--skip][--quantify][--meta][-w][-n int][-f][-d][-g file]
 
-*Required arguments:*
+[--fq fastq_1.gz] [--rq fastq_2.gz] [--prefix PREFIX] [--db HMMdb] [--com float] [--skip] [--quantify] [--meta] [-w] [-n int] [-f] [-d] [-g file]
 
+***Required arguments:***
+
+|:---------------:|:---------------:|
 | -i, --input | genome/metagenome |
 | -o, --out_dir | output folder |
 | --fq | input first/single read file, fastq(.gz), only required when '--quantify' is specified|
 
 
-*Optional arguments:*
+***Optional arguments:***
 
+|:---------------:|:---------------:|
 | --rq | input reverse read file, fastq(.gz), only required when '--quantify' is specified|
 | --prefix | prefix of output files, optional|
 | --db | Kofam HMM database |
@@ -137,35 +138,37 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 | -g, --genome_equivalent | Genome equivalent output file generated from microbe-census, can be used for library-size normalization, optional |
 
 ### Files output
-* out_dir
+* **out_dir**
     * **prodigal**
-        *prefix_predicted.cds*
-        *prefix_predicted.pep*
-        *prefix_predicted.gff*
+        * *prefix_predicted.cds*
+        * *prefix_predicted.pep*
+        * *prefix_predicted.gff*
     * **hmmsearch**
-        *prefix_hmmsearch.log*
-        *prefix_hmmsearch.tbl*
+        * *prefix_hmmsearch.log*
+        * *prefix_hmmsearch.tbl*
     * **KO_parsing**
-        *prefix.ko*
+        * *prefix.ko*
     * **KM_assignment_unfiltered**
-        *prefix.summary.kegg_contigs.tsv*
-        *prefix.summary.kegg_pathways.tsv*
+        * *prefix.summary.kegg_contigs.tsv*
+        * *prefix.summary.kegg_pathways.tsv*
     * **KM_assignment_filtered**
-        *prefix_km_on_contig.tsv*
-        *prefix_km_sample_count.tsv*
+        * *prefix_km_on_contig.tsv*
+        * *prefix_km_sample_count.tsv*
     * **out_remap (optional, only output when '--quantify' is specified)**
-        *prefix_remapping.log*
-        *prefix_unique.tab*
+        * *prefix_remapping.log*
+        * *prefix_unique.tab*
     * **out_abundance (optional, only output when '--quantify' is specified)**
-        *km_abd_contig/
+        * *km_abd_contig/
             prefix_km_contig_abd.tsv*
-        *km_abd_sample/
+        * *km_abd_sample/
             prefix_km_sample_abd.tsv*
-        *ko_abd/
+        * *ko_abd/
             prefix_ko_abd.tsv*
 
 
 ## Acknowledgements
 Author of pipeline: [Jingdi Li](https://github.com/lijingdi/)
+
 Principal Investigators: [Rob Finn](https://www.ebi.ac.uk/about/people/rob-finn)
+
 If you find any errors or bugs, please do not hesitate to contact lijingdioo@outlook.com or open a new Issue thread on this github page, we will get back to you as soon as possible.
