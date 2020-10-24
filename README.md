@@ -58,7 +58,7 @@ conda create -n iqkm -c bioconda iqKM
 ```bash
 conda activate iqkm
 which iqKM
-# /miniconda3/env/iqkm/bin/iqKM
+*# /miniconda3/env/iqkm/bin/iqKM*
 wget XX -P /miniconda3/env/iqkm/bin/iqKM/db/
 wget XX -p /miniconda3/env/iqkm/bin/iqKM/help_files/
 ```
@@ -112,13 +112,14 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 
 ### Arguments
 
-**iqKM -h**
+`**iqKM -h**
 
 ***iqkm -i input_genome -o out_dir** [--fq fastq_1.gz] [--rq fastq_2.gz] [--prefix PREFIX] [--db HMMdb] [--com float] [--skip] [--quantify] [--meta] [-w] [-n int] [-f] [-d] [-g file]*
+`
 
 | *Required arguments*        |     |
 |:---------------:|:---------------:|
-| -i, --input | genome/metagenome |
+| -i, --input | input genome/metagenome |
 | -o, --out_dir | output folder |
 | --fq | input first/single read file, fastq(.gz), only required when '--quantify' is specified|
 
@@ -126,9 +127,9 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 | *Optional arguments*        |     |
 |:---------------:|:---------------:|
 | --rq | input reverse read file, fastq(.gz), only required when '--quantify' is specified|
-| --prefix | prefix of output files, optional|
+| --prefix | prefix of output files, default: input genome filename without postfix|
 | --db | Kofam HMM database |
-| --com | KM completeness threshold (%) (contig basis), default=66.67 |
+| --com | KM completeness threshold (%) on contig basis, default=66.67 |
 | --skip | Force skipping steps if output files exist, default=False |
 | -q, --quantify | Run both KM assignment and quantification, default = False |
 | -m, --meta | Run in metagenome mode, default = False |
@@ -136,7 +137,7 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 | -n, --threads | Number of threads used for computation, default = 1 |
 | -f, --force | Force rerunning the whole pipeline, don't resume previous run, default = False |
 | -d, --dist | Apply KM minimum distance threshold, default = True |
-| -g,--genome_equivalent | Genome equivalent output file generated from microbe-census, can be used for library-size normalization, optional |
+| -g,--genome_equivalent | Genome equivalent output generated from microbe-census, can be used for library-size normalization, optional |
 
 ### Files output
 * **out_dir**
