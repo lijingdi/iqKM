@@ -10,7 +10,7 @@ iqKM -h
 
 ## Detailed pipeline walkthrough
 
-![iqKM workflow](https://github.com/lijingdi/iqKM/blob/master/iqkm_workflow.tiff)
+![iqKM workflow](https://github.com/lijingdi/iqKM/blob/master/iqkm_workflow.jpg)
 
 ## Installation
 
