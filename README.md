@@ -3,15 +3,14 @@
 iqKM is an easy to use pipeline to assign and/or quantify KEGG modules (KMs) in metagenome/genome.
 
 ```bash
-iqKM -i genome.fna -o out_dir
-iqKM -i metagenome.fna -o out_dir --meta
-iqKM -i metagenome.fna -o out_dir --fq raw_reads.fastq(.gz) --meta --quantify
+iqKM -i genome.fna -o out_dir --help_dir help_dir
+iqKM -i metagenome.fna -o out_dir --help_dir help_dir --fq raw_reads.fastq(.gz) --meta --quantify
 iqKM -h
 ```
 
 ## Detailed pipeline walkthrough
 
-![iqKM workflow]()
+![iqKM workflow](https://github.com/lijingdi/iqKM/blob/master/iqkm_workflow.tiff)
 
 ## Installation
 
@@ -33,11 +32,11 @@ conda activate iqkm
 # create a helping directory (help_dir) and enter it
 mkdir ./help_dir && cd ./help_dir
 
-# download Kofam HMM db to /path_to_help_dir/db and press db
+# download Kofam HMM db to help_dir/db and press db
 mkdir db/ && cd db/
 wget XX && hmmpress XX
 
-# download essential help_files to /path_to_help_dir/help_files
+# download essential help_files to help_dir/help_files
 cd ../help_dir && mkdir help_files && cd help_files
 wget XX ß
 ```
@@ -91,9 +90,12 @@ python3 setup.py install
 
 * **Step 3: Download the refrence HMM db and help files**
 ```bash
-
+# go to our ftp site https://drive.google.com/u/0/uc?export=download&confirm=H3_U&id=1_Kxhox_hqrs7c_fVD8LC8mbwf4vp0ehX and download help_dir.zip
+unzip help_dir && cd help_dir
+pwd
+# /path/to/help_dir
+# now you can use above path as --help_dir /path/to/help_dir when running iqkm
 ```
-
 
 
 
@@ -129,22 +131,23 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 |:---------------:|:---------------:|
 | -i, --input | input genome/metagenome |
 | -o, --out_dir | output folder |
-| --fq | input first/single read file, fastq(.gz), only required when '--quantify' is specified|
+| --help_dir | Folder containing Kofam HMM database and essential help files, refer to [install](https://github.com/lijingdi/iqKM#installation) to download |
 
 
 | Optional arguments         |     |
 |:---------------:|:---------------:|
+| --fq | input first/single read file, fastq(.gz), only required when '--quantify' is specified|
 | --rq | input reverse read file, fastq(.gz), only required when '--quantify' is specified|
 | --prefix | prefix of output files, default: input genome filename without postfix|
-| --db | Kofam HMM database |
+| --db | Your customised Kofam HMM database, default=None |
 | --com | KM completeness threshold (%) on contig basis, default=66.67 |
 | --skip | Force skipping steps if output files exist, default=False |
-| -q, --quantify | Run both KM assignment and quantification, default = False |
-| -m, --meta | Run in metagenome mode, default = False |
-| -w,--include_weights | Enable normalizing KM abundance using KO weights, default = True |
-| -n, --threads | Number of threads used for computation, default = 1 |
-| -f, --force | Force rerunning the whole pipeline, don't resume previous run, default = False |
-| -d, --dist | Apply KM minimum distance threshold, default = True |
+| -q, --quantify | Run both KM assignment and quantification, default=False |
+| -m, --meta | Run in metagenome mode, default=False |
+| -w,--include_weights | Enable normalizing KM abundance using KO weights, default=True |
+| -n, --threads | Number of threads used for computation, default=1 |
+| -f, --force | Force rerunning the whole pipeline, don't resume previous run, default=False |
+| -d, --dist | Apply KM minimum distance threshold, default=True |
 | -g,--genome_equivalent | Genome equivalent output generated from microbe-census, can be used for library-size normalization, optional |
 
 ### Files output
