@@ -14,7 +14,7 @@ class KM_dist:
 		Calculate KM abundance on contig basis, based on minimum distance within each KM
 
 	"""
-	def __init__(self, kegg_contig, com, tool, gene_tool, ko_result_file, fp, cpu, dist, outdir):
+	def __init__(self, kegg_contig, com, tool, gene_tool, ko_result_file, fp, cpu, dist, outdir, help_dir):
 		self._kegg_contig = kegg_contig
 		self._com = com
 		self._tool = tool
@@ -24,6 +24,7 @@ class KM_dist:
 		self._cpu = cpu
 		self._dist = dist
 		self._outdir = outdir
+		self._help_dir = help_dir
 
 
 	def km_dist(self, d_ko_position, out, out_count):
@@ -38,8 +39,7 @@ class KM_dist:
 	def apply_dist(self):
 		logging.debug("Applying KEGG Module distance threshold")
 		dist_cut = {}
-		pkg_dir = os.path.dirname(os.path.abspath(__file__))
-		km_d = os.path.join(pkg_dir, '../help_files/KM_distance_threshold.csv')
+		km_d = os.path.join(self._help_dir, 'help_files/KM_distance_threshold.csv')
 		with open(km_d, "r") as ds:
 			next(ds)
 			for line in ds:

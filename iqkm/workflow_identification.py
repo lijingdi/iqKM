@@ -26,6 +26,7 @@ class Workflow_identify:
         db,
         prefix,
         outdir,
+        help_dir,
         meta = False,
         ko_anno_tool = "hmmsearch",
         force = False,
@@ -47,13 +48,12 @@ class Workflow_identify:
         self._include_weights = include_weights
         self._ko_anno_tool = ko_anno_tool
         self._outdir = outdir
+        self._help_dir = help_dir
         self._gene_predict_tool = gene_prediction_tool
         self._skip = skip
 
         if self._prefix is None:
             self._prefix = ".".join((os.path.basename(self._fna)).split(".")[:-1])
-        
-        pkg_dir = os.path.dirname(os.path.abspath(__file__))
 
         # run prodigal
         logging.info("Running prodigal")   
@@ -86,7 +86,7 @@ class Workflow_identify:
         hmm_out = os.path.join(self._outdir, "hmmsearch", self._prefix + "_hmmsearch.tbl")
         hmm_log = os.path.join(self._outdir, "hmmsearch", self._prefix + "_hmmsearch.log")
         if self._hmmdb is None:
-            self._hmmdb = os.path.join(pkg_dir,  "../db/kofam.hmm")
+            self._hmmdb = os.path.join(self._help_dir,  "db/kofam.hmm")
         if self._force:
             hmm_cls = Hmmsearch(out_pep, self._cpu, self._outdir, self._hmmdb)
             hmm_cls.hmmsearch(hmm_out, hmm_log)
@@ -150,9 +150,9 @@ class Workflow_identify:
         # Assigning KM
         logging.info("Assigning KM")
         file.isdir(os.path.join(self._outdir, "KM_assignment_unfiltered"))
-        help_graphs = os.path.join(pkg_dir, '../help_files/graphs.pkl')
-        help_classes = os.path.join(pkg_dir, '../help_files/all_pathways_class.txt')
-        help_names = os.path.join(pkg_dir, '../help_files/all_pathways_names.txt')
+        help_graphs = os.path.join(self._help_dir, 'help_files/graphs.pkl')
+        help_classes = os.path.join(self._help_dir, 'help_files/all_pathways_class.txt')
+        help_names = os.path.join(self._help_dir, 'help_files/all_pathways_names.txt')
         graphs, pathway_names, pathway_classes = iqkm.give_pathways_weight.download_pathways(help_graphs, help_names, help_classes)
         kegg_output = os.path.join(self._outdir, "KM_assignment_unfiltered", self._prefix + '.summary.kegg')
         # COMMON INFO
@@ -263,7 +263,7 @@ class Workflow_identify:
 
         # calculate the minimum dist, and apply dist and com threshold (or not) on contig basis, apply com threhold on sample basis
         logging.info("Calculating minimum distance within each KM")
-        km = KM_dist(kegg_output_contig, self._com, self._ko_anno_tool, self._gene_predict_tool, hmm_out, out_pep, self._cpu, self._dist, self._outdir)
+        km = KM_dist(kegg_output_contig, self._com, self._ko_anno_tool, self._gene_predict_tool, hmm_out, out_pep, self._cpu, self._dist, self._outdir, self._help_dir)
         file.isdir(os.path.join(self._outdir, "KM_assignment_filtered"))
         out_dist = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_on_contig.tsv")
         out_count = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_sample_count.tsv")

@@ -13,7 +13,7 @@ from iqkm.workflow_identification import Workflow_identify
 
 def main():
     parser = argparse.ArgumentParser(
-        usage="Example (for both KM assignment and quantification): iqkm -i genome -o out_dir -fq *_1.fastq(.gz) -rq *_2.fastq(.gz) --quantify; Example (for KM assignment only): iqkm -i metagenome -o out_dir --meta",
+        usage="iqkm -i metagenome -o out_dir --help_dir help_dir --fq fastq1 --rq fastq2 --meta --quantify",
         description="Workflow for KM assignment and/or quantification, on both contig and sample basis",
         add_help=False,
     )
@@ -34,9 +34,15 @@ def main():
         required=True,
     )
     required.add_argument(
+        "--help_dir",
+        dest="help_dir",
+        help="Folder containing essential HMM database and help files, refer to README.md for downloading",
+        required=True,
+    )
+    optional.add_argument(
         "--fq",
         dest="fastq1",
-        help="Input first or only read file (fastq or fastq.gz), required for KM quantification",
+        help="Input first or only read file (fastq or fastq.gz), required when '--quantify' is specified",
         required=False,
     )
     optional.add_argument("-h", "--help", action="help")
@@ -49,13 +55,13 @@ def main():
     optional.add_argument(
         "--prefix",
         dest="prefix",
-        help="The prefix of your output file, default: your input genome/metagenome file name without postfix",
+        help="Prefix of output files, default: your input genome/metagenome file name without postfix",
         default=None,
     )
     optional.add_argument(
         "--db",
         dest="hmmdb",
-        help="Kofam HMM database for KO assignment, default path='/path_to_iqKM/db/kofam.hmm', you can change it to your customised db",
+        help="Kofam HMM database for KO assignment, default path='/help_dir/db/kofam.hmm', you can change it to your customised db",
         default=None,
     )
     optional.add_argument(
@@ -116,7 +122,7 @@ def main():
         "-g",
         "--genome_equivalent",
         dest="GE",
-        help="Genome equivalent output generated from microbe-census, can be used for library-size normalization when doing quantification. If not provided, the KM abundance won't be normalized by library size (default: None)",
+        help="Genome equivalent output generated from microbe-census, can be used for library-size normalization when doing quantification. Optional (default: None)",
         default=None,
     )
 
@@ -134,6 +140,8 @@ def main():
             logging.error(
                 "Please provide the right path of input genome/metagenome file (fasta format)"
             )
+        if not file.isdir(args.help_dir):
+            logging.error("Please provide the right path for help_files, refer to README.md for download help_dir")
         if args.quantify:
             logging.info("Running iqKM for both KM assignment and quantification")
             if not file.exists(args.fastq1):
@@ -148,6 +156,7 @@ def main():
                     args.hmmdb,
                     args.prefix,
                     args.outdir,
+                    args.help_dir,
                     args.GE,
                     args.meta,
                     "hmmsearch",
@@ -166,6 +175,7 @@ def main():
                 args.hmmdb,
                 args.prefix,
                 args.outdir,
+                args.help_dir,
                 args.meta,
                 "hmmsearch",
                 args.force,

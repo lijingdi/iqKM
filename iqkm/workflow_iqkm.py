@@ -30,6 +30,7 @@ class Workflow_iqkm:
         db,
         prefix,
         outdir,
+        help_dir,
         GE,
         meta = False,
         ko_anno_tool="hmmsearch",
@@ -57,12 +58,12 @@ class Workflow_iqkm:
         self._gene_predict_tool = gene_prediction_tool
         self._ko_anno_tool = ko_anno_tool
         self._outdir = outdir
+        self._help_dir = help_dir
         self._skip = skip
 
         if self._prefix is None:
             self._prefix = ".".join((os.path.basename(self._fna)).split(".")[:-1])
                 
-        pkg_dir = os.path.dirname(os.path.abspath(__file__))
 
         # run prodigal
         logging.info("Running prodigal")   
@@ -132,7 +133,7 @@ class Workflow_iqkm:
             self._outdir, "hmmsearch", self._prefix + "_hmmsearch.log"
         )
         if self._hmmdb is None:
-            self._hmmdb = os.path.join(pkg_dir,  "../db/kofam.hmm")
+            self._hmmdb = os.path.join(self._help_dir,  "db/kofam.hmm")
         if self._force:
             hmm_cls = Hmmsearch(out_pep, self._cpu, self._outdir, self._hmmdb)
             hmm_cls.hmmsearch(hmm_out, hmm_log)
@@ -220,9 +221,9 @@ class Workflow_iqkm:
         # Assigning KM
         logging.info("Assigning KM")
         file.isdir(os.path.join(self._outdir, "KM_assignment_unfiltered"))
-        help_graphs = os.path.join(pkg_dir, "../help_files/graphs.pkl")
-        help_classes = os.path.join(pkg_dir, "../help_files/all_pathways_class.txt")
-        help_names = os.path.join(pkg_dir, "../help_files/all_pathways_names.txt")
+        help_graphs = os.path.join(self._help_dir, "help_files/graphs.pkl")
+        help_classes = os.path.join(self._help_dir, "help_files/all_pathways_class.txt")
+        help_names = os.path.join(self._help_dir, "help_files/all_pathways_names.txt")
         (
             graphs,
             pathway_names,
@@ -405,11 +406,11 @@ class Workflow_iqkm:
                 )
         # calculate the minimum dist, and apply dist and com threshold (or not) on contig basis, apply com threhold on sample basis
         logging.info("Calculating minimum distance within each KM")
+        file.isdir(os.path.join(self._outdir, "KM_assignment_filtered"))
+        out_dist = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_on_contig.tsv")
+        out_count = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_sample_count.tsv")
         if self._force:
-            km = KM_dist(kegg_output_contig, self._com, self._ko_anno_tool, self._gene_predict_tool, hmm_out, out_pep, self._cpu, self._dist, self._outdir)
-            file.isdir(os.path.join(self._outdir, "KM_assignment_filtered"))
-            out_dist = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_on_contig.tsv")
-            out_count = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_sample_count.tsv")
+            km = KM_dist(kegg_output_contig, self._com, self._ko_anno_tool, self._gene_predict_tool, hmm_out, out_pep, self._cpu, self._dist, self._outdir, self._help_dir)
             km.km_dist(d_ko_position, out_dist, out_count) 
         elif self._skip:
             if file.exists(out_count) and file.exists(out_dist):
@@ -417,17 +418,11 @@ class Workflow_iqkm:
             else:
                 logging.info("Failed to skip KM minimum distance calculation as output is missing")  
                 logging.info("Calculating minimum distance within each KM")
-                km = KM_dist(kegg_output_contig, self._com, self._ko_anno_tool, self._gene_predict_tool, hmm_out, out_pep, self._cpu, self._dist, self._outdir)
-                file.isdir(os.path.join(self._outdir, "KM_assignment_filtered"))
-                out_dist = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_on_contig.tsv")
-                out_count = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_sample_count.tsv")
+                km = KM_dist(kegg_output_contig, self._com, self._ko_anno_tool, self._gene_predict_tool, hmm_out, out_pep, self._cpu, self._dist, self._outdir, self._help_dir)
                 km.km_dist(d_ko_position, out_dist, out_count) 
         else:
             if file.isnewer(kegg_output_contig, out_count):
-                km = KM_dist(kegg_output_contig, self._com, self._ko_anno_tool, self._gene_predict_tool, hmm_out, out_pep, self._cpu, self._dist, self._outdir)
-                file.isdir(os.path.join(self._outdir, "KM_assignment_filtered"))
-                out_dist = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_on_contig.tsv")
-                out_count = os.path.join(self._outdir, "KM_assignment_filtered", self._prefix + "_km_sample_count.tsv")
+                km = KM_dist(kegg_output_contig, self._com, self._ko_anno_tool, self._gene_predict_tool, hmm_out, out_pep, self._cpu, self._dist, self._outdir, self._help_dir)
                 km.km_dist(d_ko_position, out_dist, out_count) 
             else:
                 logging.info("Skip KM minimum distance calculation because {} is newer than {}, add '--force' if you want to rerun the computation".format(out_count, kegg_output_contig))
@@ -466,6 +461,7 @@ class Workflow_iqkm:
             out_pep,
             self._dist,
             self._outdir,
+            self._help_dir
         )
         abd_cls.km_abd(
             d_nuc_ko,
