@@ -17,7 +17,7 @@ iqKM -h
 iqKM is a command line tool developed for Linux and macOS and is available to install from github, bioconda () or pypi ().
 
 
-### Install via conda (recommanded)
+### Install via conda (recommended)
 
 Installing iqKM via conda will automatically install all dependencies. 
 
@@ -26,7 +26,7 @@ Installing iqKM via conda will automatically install all dependencies.
 conda create -n iqkm -c bioconda iqKM
 ```
 
-* **Step 2: Download the reference HMM db and help files**
+* **Step 2: Download Kofam HMM db and help files**
 ```bash
 conda activate iqkm
 # create a helping directory (help_dir) and enter it
@@ -59,7 +59,7 @@ Before installing iqKM using pip, make sure the following softwares are on the s
 pip install iqKM
 ```
 
-* **Step 3: Download the refrence HMM db and help files**
+* **Step 3: Download Kofam HMM db and help files**
 ```bash
 
 #
@@ -88,7 +88,7 @@ cd /path/to/iqKM
 python3 setup.py install
 ```
 
-* **Step 3: Download the refrence HMM db and help files**
+* **Step 3: Download Kofam HMM db and help files**
 ```bash
 # go to our ftp site https://drive.google.com/u/0/uc?export=download&confirm=H3_U&id=1_Kxhox_hqrs7c_fVD8LC8mbwf4vp0ehX and download help_dir.zip
 unzip help_dir && cd help_dir
@@ -103,20 +103,20 @@ pwd
 ### Basic usage
 * **KMs assignment for individual genomes**
 ```bash
-iqKM -i genome.fna -o out_dir
+iqKM -i genome.fna -o out_dir --help_dir help_dir
 ```
 * **KMs assignment and quantification for individual genomes**
 ```bash
-iqKM -i genome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.fastq(.gz) --quantify
+iqKM -i genome.fna -o out_dir --help_dir help_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.fastq(.gz) --quantify
 ```
 
 * **KMs assignment for metagenomes**
 ```bash
-iqKM -i metagenome.fna -o out_dir --meta
+iqKM -i metagenome.fna -o out_dir --help_dir help_dir --meta
 ```
 * **KMs assignment and quantification for metagenomes**
 ```bash
-iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.fastq(.gz) --meta --quantify
+iqKM -i metagenome.fna -o out_dir --help_dir help_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.fastq(.gz) --meta --quantify
 ```
 
 ### Arguments
@@ -151,23 +151,24 @@ iqKM -i metagenome.fna -o out_dir --fq raw_reads_1.fastq(.gz) --rq raw_reads_2.f
 | -g,--genome_equivalent | Genome equivalent output generated from microbe-census, can be used for library-size normalization, optional |
 
 ### Files output
-* **out_dir**
-    * **prodigal (intermediate files)** 
-        * *[prefix]_predicted.cds*
-        * *[prefix]_predicted.pep*
-        * *[prefix]_predicted.gff*
-    * **hmmsearch (intermediate files)**
+* **output**
+    * **prodigal (intermediate output files)** 
+        * *[[prefix].cds](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal/example.cds)*
+        * *[prefix].pep*
+        * *[prefix].gff*
+        * *[prefix].cds.bwa_index* (only when '--quantify' is specified)
+    * **hmmsearch (intermediate output files)**
         * *[prefix]_hmmsearch.log*
         * *[prefix]_hmmsearch.tbl*
-    * **KO_parsing (intermediate files)**
+    * **KO_parsing (intermediate output files)**
         * *[prefix].ko*
-    * **KM_assignment_unfiltered (intermediate files)**
+    * **KM_assignment_unfiltered (intermediate output files)**
         * *[prefix].summary.kegg_contigs.tsv*
         * *[prefix].summary.kegg_pathways.tsv*
     * **KM_assignment_filtered (KM assignment output)**
         * *[prefix]_km_on_contig.tsv*
         * *[prefix]_km_sample_count.tsv*
-    * **out_remap (intermediate files, only when '--quantify' is specified)**
+    * **out_remap (intermediate output files, only when '--quantify' is specified)**
         * *[prefix]_remapping.log*
         * *[prefix]_unique.tab*
     * **out_abundance (KM abundance output, only when '--quantify' is specified)**
