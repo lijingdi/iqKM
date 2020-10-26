@@ -190,7 +190,7 @@ class KM_abd:
 										if not ko in d_module_ko:
 											d_module_ko[ko] = seq_count[nuc_name]
 										else:
-											logging.info("{} in {} on contig {} are from the same gene {}".format(",".join(d_nuc_ko[nuc_name]), module, contig, nuc_name))
+											logging.debug("{} in {} on contig {} are from the same gene {}".format(",".join(d_nuc_ko[nuc_name]), module, contig, nuc_name))
 						elif len(min_combin_list) > 1:
 							# more than one combination have the same minimum distance within the KM
 							d_module_ko_multiple = defaultdict(list)

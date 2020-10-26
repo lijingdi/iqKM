@@ -11,6 +11,7 @@ from iqkm.run_hmmsearch import Hmmsearch
 from iqkm.parse_ko_assignment import ParseKo
 import iqkm.give_pathways_weight
 from iqkm.calculate_km_abd import KM_abd
+from iqkm.calculate_km_proximity import KM_dist
 from iqkm.run_prodigal import Prodigal
 
 

@@ -36,7 +36,7 @@ def main():
     required.add_argument(
         "--help_dir",
         dest="help_dir",
-        help="Folder containing essential HMM database and help files, refer to README.md for downloading",
+        help="Folder containing Kofam HMM database and help files, refer to README.md for downloading",
         required=True,
     )
     optional.add_argument(
