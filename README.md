@@ -1,6 +1,6 @@
 # iqKM (Identification and Quantification of KEGG Modules)
 
-iqKM is an easy to use pipeline to assign and/or quantify KEGG modules (KMs) in metagenome/genome.
+iqKM is an easy to use pipeline to assign and/or quantify KEGG Orthology (KO) and KEGG modules (KMs) in metagenome/genome.
 
 ```bash
 iqKM -i genome.fna -o out_dir --help_dir help_dir
@@ -14,7 +14,7 @@ iqKM -h
 
 ## Installation
 
-iqKM is a command line tool developed for Linux and macOS and is available to install from github, bioconda () or pypi ().
+iqKM is a command line tool developed for Linux and macOS and is available to install from [github](https://github.com/lijingdi/iqKM), [bioconda](https://github.com/lijingdi/iqKM) or [pypi](https://github.com/lijingdi/iqKM).
 
 
 ### Install via conda (recommended)
@@ -150,7 +150,7 @@ iqKM -i metagenome.fna -o out_dir --help_dir help_dir --fq raw_reads_1.fastq(.gz
         * *[[prefix].cds](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal/example.cds)*
         * *[[prefix].pep](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal/example.pep)*
         * *[[prefix].gff](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal/example.gff)*
-        * *[[prefix].cds.bwa_index]((https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal)* (only when '--quantify' is specified)
+        * *[[prefix].cds.bwa_index](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal)* (only when '--quantify' is specified)
     * **[hmmsearch](https://github.com/lijingdi/iqKM/blob/master/tests/output/hmmsearch) (intermediate output files)**
         * *[[prefix]_hmmsearch.log](https://github.com/lijingdi/iqKM/blob/master/tests/output/hmmsearch/example_hmmsearch.log)*
         * *[[prefix]_hmmsearch.tbl](https://github.com/lijingdi/iqKM/blob/master/tests/output/hmmsearch/example_hmmsearch.tbl)*
