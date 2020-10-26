@@ -29,16 +29,10 @@ conda create -n iqkm -c bioconda iqKM
 * **Step 2: Download Kofam HMM db and help files**
 ```bash
 conda activate iqkm
-# create a helping directory (help_dir) and enter it
-mkdir ./help_dir && cd ./help_dir
 
-# download Kofam HMM db to help_dir/db and press db
-mkdir db/ && cd db/
-wget XX && hmmpress XX
+# download help_dir, which contains Kofam HMM db and other help_files
+wget ftp_link && unzip help_dir
 
-# download essential help_files to help_dir/help_files
-cd ../help_dir && mkdir help_files && cd help_files
-wget XX ß
 ```
 
 ### Install via pip
@@ -62,9 +56,9 @@ pip install iqKM
 * **Step 3: Download Kofam HMM db and help files**
 ```bash
 
-#
-wget 
-wget
+# download help_dir, which contains Kofam HMM db and other help_files
+wget ftp_link && unzip help_dir
+
 ```
 
 
@@ -151,33 +145,33 @@ iqKM -i metagenome.fna -o out_dir --help_dir help_dir --fq raw_reads_1.fastq(.gz
 | -g,--genome_equivalent | Genome equivalent output generated from microbe-census, can be used for library-size normalization, optional |
 
 ### Files output
-* **output**
-    * **[prodigal (intermediate output files)](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal)** 
+* **[output](https://github.com/lijingdi/iqKM/blob/master/tests/output)**
+    * **[prodigal](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal)(intermediate output files)** 
         * *[[prefix].cds](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal/example.cds)*
-        * *[prefix].pep*
-        * *[prefix].gff*
-        * *[prefix].cds.bwa_index* (only when '--quantify' is specified)
-    * **hmmsearch (intermediate output files)**
-        * *[prefix]_hmmsearch.log*
-        * *[prefix]_hmmsearch.tbl*
-    * **KO_parsing (intermediate output files)**
-        * *[prefix].ko*
-    * **KM_assignment_unfiltered (intermediate output files)**
-        * *[prefix].summary.kegg_contigs.tsv*
-        * *[prefix].summary.kegg_pathways.tsv*
-    * **KM_assignment_filtered (KM assignment output)**
-        * *[prefix]_km_on_contig.tsv*
-        * *[prefix]_km_sample_count.tsv*
-    * **out_remap (intermediate output files, only when '--quantify' is specified)**
-        * *[prefix]_remapping.log*
-        * *[prefix]_unique.tab*
-    * **out_abundance (KM abundance output, only when '--quantify' is specified)**
-        * **km_abd_contig**
-           * *[prefix]_km_contig_abd.tsv*
-        * **km_abd_sample**
-           * *[prefix]_km_sample_abd.tsv*
-        * **ko_abd**
-           * *[prefix]_ko_abd.tsv*
+        * *[[prefix].pep](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal/example.pep)*
+        * *[[prefix].gff](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal/example.gff)*
+        * *[[prefix].cds.bwa_index]((https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal)* (only when '--quantify' is specified)
+    * **[hmmsearch](https://github.com/lijingdi/iqKM/blob/master/tests/output/hmmsearch) (intermediate output files)**
+        * *[[prefix]_hmmsearch.log](https://github.com/lijingdi/iqKM/blob/master/tests/output/hmmsearch/example_hmmsearch.log)*
+        * *[[prefix]_hmmsearch.tbl](https://github.com/lijingdi/iqKM/blob/master/tests/output/hmmsearch/example_hmmsearch.tbl)*
+    * **[KO_parsing](https://github.com/lijingdi/iqKM/blob/master/tests/output/KO_parsing) (intermediate output files)**
+        * *[[prefix].ko](https://github.com/lijingdi/iqKM/blob/master/tests/output/KO_parsing/example.ko)*
+    * **[KM_assignment_unfiltered](https://github.com/lijingdi/iqKM/blob/master/tests/output/KM_assignment_unfiltered) (intermediate output files)**
+        * *[[prefix].summary.kegg_contigs.tsv](https://github.com/lijingdi/iqKM/blob/master/tests/output/KM_assignment_unfiltered/example.summary.kegg_contigs.tsv)*
+        * *[[prefix].summary.kegg_pathways.tsv](https://github.com/lijingdi/iqKM/blob/master/tests/output/KM_assignment_unfiltered/example.summary.kegg_pathways.tsv)*
+    * **[KM_assignment_filtered](https://github.com/lijingdi/iqKM/blob/master/tests/output/KM_assignment_filtered) (KM assignment output)**
+        * *[[prefix]_km_on_contig.tsv](https://github.com/lijingdi/iqKM/blob/master/tests/output/KM_assignment_filtered/example_km_on_contig.tsv)*
+        * *[[prefix]_km_sample_count.tsv](https://github.com/lijingdi/iqKM/blob/master/tests/output/KM_assignment_filtered/example_km_sample_count.tsv)*
+    * **[out_remap](https://github.com/lijingdi/iqKM/blob/master/tests/output/out_remap) (intermediate output files, only when '--quantify' is specified)**
+        * *[[prefix]_remapping.log](https://github.com/lijingdi/iqKM/blob/master/tests/output/out_remap/example_remapping.log)*
+        * *[[prefix]_unique.tab](https://github.com/lijingdi/iqKM/blob/master/tests/output/out_remap/example_unique.tab)*
+    * **[out_abundance](https://github.com/lijingdi/iqKM/tree/master/tests/output/out_abundance) (KM abundance output, only when '--quantify' is specified)**
+        * **[km_abd_contig](https://github.com/lijingdi/iqKM/tree/master/tests/output/out_abundance/km_abd_contig)**
+           * *[[prefix]_km_contig_abd.tsv](https://github.com/lijingdi/iqKM/blob/master/tests/output/out_abundance/km_abd_contig/example_km_contig_abd.tsv)*
+        * **[km_abd_sample](https://github.com/lijingdi/iqKM/tree/master/tests/output/out_abundance/km_abd_sample)**
+           * *[[prefix]_km_sample_abd.tsv](https://github.com/lijingdi/iqKM/blob/master/tests/output/out_abundance/km_abd_sample/example_km_sample_abd.tsv)*
+        * **[ko_abd](https://github.com/lijingdi/iqKM/tree/master/tests/output/out_abundance/ko_abd)**
+           * *[[prefix]_ko_abd.tsv](https://github.com/lijingdi/iqKM/blob/master/tests/output/out_abundance/ko_abd/example_ko_abd.tsv)*
 
 
 ## Acknowledgements
