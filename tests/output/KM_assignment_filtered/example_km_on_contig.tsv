@@ -1,0 +1,3 @@
+Contig  Module  Completeness    Pathway_name    Pathway_class   Matching_KO     Missing_KO      Minimun_dist
+ERR1753690.PRJEB18557.256318_metagenome.k127_176        M00307  66.67   Pyruvate oxidation, pyruvate => acetyl-CoA      Pathway modules; Carbohydrate metabolism; Central carbohydrate metabolism       K00627(0.33),K00382(0.33)       K00163(0.33)    7.0
+ERR1753690.PRJEB18557.256318_metagenome.k127_633        M00627  66.67   beta-Lactam resistance, Bla system      Signature modules; Gene set; Drug resistance    K02171(0.33),K02172(0.33)       K18766(0.33)    -3.0

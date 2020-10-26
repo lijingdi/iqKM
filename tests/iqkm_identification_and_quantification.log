@@ -1,0 +1,23 @@
+iqkm -i tests/genomes/ERR1753690_metagenome.fna -o tests/output_iqkm/ --help_dir ../iqKM_copy/help_dir --fq tests/ERR1753690_1.fastq.gz --rq tests/ERR1753690_2.fastq.gz --meta --quantify -n 4 
+
+10/25/2020 19:43:41:  iqKM version 1.0
+10/25/2020 19:43:41:  Running iqKM for both KM assignment and quantification
+10/25/2020 19:43:41:  Running prodigal
+10/25/2020 19:52:45:  Run remapping to quantify genes/KOs
+10/25/2020 20:52:28:  Running hmmsearch
+10/26/2020 00:12:10:  Parsing KO
+10/26/2020 00:12:12:  Assigning KM
+10/26/2020 00:38:10:  Calculating minimum distance within each KM
+10/26/2020 00:38:10:  Filtering M00579 on ERR1753690.PRJEB18557.256318_metagenome.k127_1933 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00579 on ERR1753690.PRJEB18557.256318_metagenome.k127_6660 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00793 on ERR1753690.PRJEB18557.256318_metagenome.k127_14628 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00159 on ERR1753690.PRJEB18557.256318_metagenome.k127_18597 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00579 on ERR1753690.PRJEB18557.256318_metagenome.k127_20403 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00579 on ERR1753690.PRJEB18557.256318_metagenome.k127_31220 based on distance threshold
+10/26/2020 00:38:10:  Calculating KM abundance
+10/26/2020 00:38:10:  Filtering M00579 on ERR1753690.PRJEB18557.256318_metagenome.k127_1933 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00579 on ERR1753690.PRJEB18557.256318_metagenome.k127_6660 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00793 on ERR1753690.PRJEB18557.256318_metagenome.k127_14628 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00159 on ERR1753690.PRJEB18557.256318_metagenome.k127_18597 based on distance threshold
+10/26/2020 00:38:10:  Filtering M00579 on ERR1753690.PRJEB18557.256318_metagenome.k127_20403 based on distance threshold
+10/26/2020 00:38:11:  Filtering M00579 on ERR1753690.PRJEB18557.256318_metagenome.k127_31220 based on distance threshold

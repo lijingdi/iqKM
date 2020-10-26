@@ -1,0 +1,12 @@
+DEFINITION  seqnum=1;seqlen=571;seqhdr="ERR1753690.PRJEB18557.256318_metagenome.k127_3 flag=1 multi=4.0000 len=571";version=Prodigal.v2.6.3;run_type=Metagenomic;model="8|Bacteroides_fragilis_NCTC_9343|B|43.2|11|0";gc_cont=43.20;transl_table=11;uses_sd=0
+FEATURES             Location/Qualifiers
+     CDS             <3..275
+                     /note="ID=1_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.495;conf=96.53;score=14.47;cscore=11.25;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;"
+     CDS             365..>571
+                     /note="ID=1_2;partial=01;start_type=ATG;rbs_motif=TAA;rbs_spacer=12bp;gc_cont=0.459;conf=99.95;score=33.18;cscore=22.11;sscore=11.07;rscore=8.35;uscore=-1.40;tscore=4.12;"
+//
+DEFINITION  seqnum=2;seqlen=546;seqhdr="ERR1753690.PRJEB18557.256318_metagenome.k127_8 flag=1 multi=6.0000 len=546";version=Prodigal.v2.6.3;run_type=Metagenomic;model="8|Bacteroides_fragilis_NCTC_9343|B|43.2|11|0";gc_cont=43.20;transl_table=11;uses_sd=0
+FEATURES             Location/Qualifiers
+     CDS             complement(<3..>545)
+                     /note="ID=2_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.438;conf=100.00;score=59.66;cscore=58.05;sscore=1.61;rscore=0.00;uscore=0.00;tscore=1.61;"
+//

@@ -1,0 +1,70 @@
+iqkm -i genomes/GCF_003018455.1_ASM301845v1_genomic.fna -o output_identification/ --help_dir ../help_dir/ -n 4 
+
+10/25/2020 16:35:12:  iqKM version 1.0
+10/25/2020 16:35:12:  Running iqKM for KM assignment
+10/25/2020 16:35:12:  Running prodigal
+10/25/2020 16:35:27:  Running hmmsearch
+10/25/2020 16:58:17:  Parsing KO
+10/25/2020 16:58:18:  Assigning KM
+10/25/2020 16:58:23:  Calculating minimum distance within each KM
+10/25/2020 16:58:23:  Filtering M00001 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00002 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00003 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00004 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00006 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00008 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00016 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00017 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00018 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00020 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00022 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00023 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00024 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00025 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00028 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00048 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00049 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00052 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00053 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00060 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00061 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00063 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00064 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00082 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00083 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00087 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00093 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00115 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00116 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00117 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00120 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00121 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00122 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00126 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00133 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00136 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00153 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00364 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00530 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00532 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00572 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00631 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00696 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00844 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00846 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00855 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00051 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00866 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00167 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00527 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00526 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00165 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00868 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00845 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00040 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00046 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00140 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00345 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00525 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00842 on NZ_CP027599.1 based on distance threshold
+10/25/2020 16:58:23:  Filtering M00843 on NZ_CP027599.1 based on distance threshold

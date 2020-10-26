@@ -1,0 +1,24 @@
+[bwa_index] Pack FASTA... 0.73 sec
+[bwa_index] Construct BWT for the packed sequence...
+[BWTIncCreate] textLength=117716910, availableWord=20282612
+[BWTIncConstructFromPacked] 10 iterations done. 33456590 characters processed.
+[BWTIncConstructFromPacked] 20 iterations done. 61807006 characters processed.
+[BWTIncConstructFromPacked] 30 iterations done. 87000894 characters processed.
+[BWTIncConstructFromPacked] 40 iterations done. 109389246 characters processed.
+[bwt_gen] Finished constructing BWT in 45 iterations.
+[bwa_index] 30.10 seconds elapse.
+[bwa_index] Update BWT... 0.56 sec
+[bwa_index] Pack forward-only FASTA... 0.41 sec
+[bwa_index] Construct SA from BWT and Occ... 12.17 sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa index tests/output_iqkm/prodigal/ERR1753690_metagenome.cds
+[main] Real time: 44.307 sec; CPU: 43.978 sec
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 264902 sequences (40000202 bp)...
+[M::process] read 264902 sequences (40000202 bp)...
+[M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (8, 74267, 14, 2)
+[M::mem_pestat] skip orientation FF as there are not enough pairs
+.......
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa mem -M -t 4 tests/output_iqkm/prodigal/ERR1753690_metagenome.cds tests/ERR1753690_1.fastq.gz tests/ERR1753690_2.fastq.gz
+[main] Real time: 2408.475 sec; CPU: 8049.361 sec

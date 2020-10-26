@@ -1,0 +1,4 @@
+Contig  Module  Completeness    Pathway_name    Pathway_class   Matching_KO     Minimum_dist    Module_Abundance
+ERR1753690.PRJEB18557.256318_metagenome.k127_127        M00086  100.0   beta-Oxidation, acyl-CoA synthesis      Pathway modules; Lipid metabolism; Fatty acid metabolism        K01897(1)       NA      32.55562
+ERR1753690.PRJEB18557.256318_metagenome.k127_176        M00307  66.67   Pyruvate oxidation, pyruvate => acetyl-CoA      Pathway modules; Carbohydrate metabolism; Central carbohydrate metabolism       K00627(0.33),K00382(0.33)       7.0     1163.87642
+ERR1753690.PRJEB18557.256318_metagenome.k127_633        M00627  66.67   beta-Lactam resistance, Bla system      Signature modules; Gene set; Drug resistance    K02171(0.33),K02172(0.33)       -3.0    272.15385

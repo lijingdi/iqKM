@@ -1,0 +1,13 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  ../iqKM_copy/help_dir/db/kofam.hmm
+# target sequence database:        tests/output_iqkm/prodigal/ERR1753690_metagenome.pep
+# per-dom hits tabular output:     tests/output_iqkm/hmmsearch/ERR1753690_metagenome_hmmsearch.tbl
+# show alignments in output:       no
+# model-specific thresholding:     GA cutoffs
+# number of worker threads:        4
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
