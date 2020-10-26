@@ -152,7 +152,7 @@ iqKM -i metagenome.fna -o out_dir --help_dir help_dir --fq raw_reads_1.fastq(.gz
 
 ### Files output
 * **output**
-    * **prodigal (intermediate output files)** 
+    * **[prodigal (intermediate output files)](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal)** 
         * *[[prefix].cds](https://github.com/lijingdi/iqKM/blob/master/tests/output/prodigal/example.cds)*
         * *[prefix].pep*
         * *[prefix].gff*
