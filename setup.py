@@ -23,7 +23,7 @@ setuptools.setup(
     python_requires=">=3.6",
     license="GPLv3",
     classifiers=[
-        "Programming Language :: Python :: 3.8.3",
+        "Programming Language :: Python :: 3.8",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: Unix",
     ],
