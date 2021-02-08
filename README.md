@@ -14,7 +14,7 @@ iqKM -h
 
 ## Installation
 
-iqKM is a command line tool developed for Linux and macOS and is available to install from [github](https://github.com/lijingdi/iqKM), [bioconda](https://github.com/lijingdi/iqKM) or [pypi](https://github.com/lijingdi/iqKM).
+iqKM is a command line tool developed for Linux and macOS and is available to install from [github](https://github.com/lijingdi/iqKM), [bioconda](https://github.com/lijingdi/iqKM) or [pypi](https://pypi.org/project/iqkm/).
 
 
 ### Install via conda (recommended)
@@ -23,15 +23,21 @@ Installing iqKM via conda will automatically install all dependencies.
 
 * **Step 1: Create the iqKM environment**
 ```bash
-conda create -n iqkm -c bioconda iqKM
+conda create -n iqKM -c bioconda iqkm
 ```
 
 * **Step 2: Download Kofam HMM db and help files**
 ```bash
-conda activate iqkm
+conda activate iqKM
 
 # download help_dir, which contains Kofam HMM db and other help_files
-wget ftp_link && unzip help_dir
+# go to our ftp site and download help_dir.zip
+wget https://drive.google.com/u/0/uc?export=download&confirm=H3_U&id=1_Kxhox_hqrs7c_fVD8LC8mbwf4vp0ehX
+unzip help_dir && cd help_dir
+pwd
+# /path/to/help_dir
+# now you can use above path as --help_dir /path/to/help_dir when running iqkm
+
 
 ```
 
@@ -50,14 +56,19 @@ Before installing iqKM using pip, make sure the following softwares are on the s
 
 * **Step 2: Install iqKM**
 ```bash
-pip install iqKM
+pip install iqkm
 ```
 
 * **Step 3: Download Kofam HMM db and help files**
 ```bash
 
 # download help_dir, which contains Kofam HMM db and other help_files
-wget ftp_link && unzip help_dir
+# go to our ftp site and download help_dir.zip
+wget https://drive.google.com/u/0/uc?export=download&confirm=H3_U&id=1_Kxhox_hqrs7c_fVD8LC8mbwf4vp0ehX
+unzip help_dir && cd help_dir
+pwd
+# /path/to/help_dir
+# now you can use above path as --help_dir /path/to/help_dir when running iqkm
 
 ```
 
