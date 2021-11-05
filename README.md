@@ -14,7 +14,7 @@ iqKM -h
 
 ## Installation
 
-iqKM is a command line tool developed for Linux and macOS and is available to install from [github](https://github.com/lijingdi/iqKM), [bioconda](https://github.com/lijingdi/iqKM) or [pypi](https://pypi.org/project/iqkm/).
+iqKM is a command line tool developed for Linux and macOS and is available to install from [github](https://github.com/lijingdi/iqKM), [bioconda](https://anaconda.org/bioconda/iqkm) or [pypi](https://pypi.org/project/iqkm/).
 
 
 ### Install via conda (recommended)
